@@ -1,0 +1,66 @@
+buildscript {
+    ext.kotlin_version = "1.5.0"
+
+    ext {
+        configs = [kotlin_version   : kotlin_version,
+                   applicationId    : 'com.newolf.email',
+                   compileSdkVersion: 30,
+                   buildToolsVersion: '30.0.3',
+                   minSdkVersion    : 18,
+                   targetSdkVersion : 30,
+                   versionCode      : 100,
+                   versionName      : '1.0.0',
+
+
+        ]
+
+        def appcompat = '1.3.0'
+        def core = '1.5.0'
+        def constraintLayoutVersion = '2.0.4'
+        def lifecycle_version = "2.3.1"
+
+        deps = [androidx        : "androidx.appcompat:appcompat:$appcompat",
+                coreKtx         : "androidx.core:core-ktx:$core",
+                material         : "com.google.android.material:material:$appcompat",
+                constraintlayout: "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+                kotlin          : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+
+        ]
+
+
+    }
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.3"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

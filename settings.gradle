@@ -1,0 +1,3 @@
+include ':MailLib'
+include ':app'
+rootProject.name = "Email"
